@@ -1,0 +1,1 @@
+C:\work\cocos-test\proj.win32\Debug.win32\Cocos2dTest.exe
