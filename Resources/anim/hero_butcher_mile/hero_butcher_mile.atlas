@@ -1,0 +1,153 @@
+
+hero_butcher_mile.png
+size: 1024,128
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+hero_butcher/armL
+  rotate: true
+  xy: 449, 34
+  size: 30, 59
+  orig: 30, 59
+  offset: 0, 0
+  index: -1
+hero_butcher/armR
+  rotate: true
+  xy: 698, 91
+  size: 34, 42
+  orig: 34, 42
+  offset: 0, 0
+  index: -1
+hero_butcher/armR2
+  rotate: true
+  xy: 47, 3
+  size: 14, 13
+  orig: 16, 15
+  offset: 1, 1
+  index: -1
+hero_butcher/body
+  rotate: false
+  xy: 685, 9
+  size: 71, 74
+  orig: 71, 74
+  offset: 0, 0
+  index: -1
+hero_butcher/body2
+  rotate: true
+  xy: 533, 7
+  size: 57, 69
+  orig: 57, 69
+  offset: 0, 0
+  index: -1
+hero_butcher/death/death_trash0001
+  rotate: true
+  xy: 449, 66
+  size: 59, 97
+  orig: 102, 112
+  offset: 26, 2
+  index: -1
+hero_butcher/death/death_trash0002
+  rotate: false
+  xy: 101, 21
+  size: 98, 104
+  orig: 102, 112
+  offset: 3, 7
+  index: -1
+hero_butcher/death/death_trash0003
+  rotate: false
+  xy: 2, 19
+  size: 97, 106
+  orig: 102, 112
+  offset: 3, 3
+  index: -1
+hero_butcher/death/death_trash0004
+  rotate: false
+  xy: 201, 16
+  size: 90, 109
+  orig: 102, 112
+  offset: 12, 3
+  index: -1
+hero_butcher/death/death_trash0005
+  rotate: true
+  xy: 293, 25
+  size: 100, 91
+  orig: 102, 112
+  offset: 0, 3
+  index: -1
+hero_butcher/death/death_trash0006
+  rotate: true
+  xy: 386, 30
+  size: 95, 61
+  orig: 102, 112
+  offset: 1, 0
+  index: -1
+hero_butcher/death/death_trash0007
+  rotate: true
+  xy: 758, 51
+  size: 74, 66
+  orig: 102, 112
+  offset: 21, 1
+  index: -1
+hero_butcher/death/death_trash0008
+  rotate: false
+  xy: 622, 85
+  size: 74, 40
+  orig: 102, 112
+  offset: 20, 3
+  index: -1
+hero_butcher/death/death_trash0009
+  rotate: false
+  xy: 435, 2
+  size: 69, 26
+  orig: 102, 112
+  offset: 21, 3
+  index: -1
+hero_butcher/death/death_trash0010
+  rotate: false
+  xy: 364, 4
+  size: 69, 19
+  orig: 102, 112
+  offset: 32, 5
+  index: -1
+hero_butcher/death/death_trash0011
+  rotate: false
+  xy: 2, 5
+  size: 43, 12
+  orig: 102, 112
+  offset: 40, 6
+  index: -1
+hero_butcher/hatchet
+  rotate: false
+  xy: 604, 5
+  size: 79, 65
+  orig: 81, 67
+  offset: 1, 1
+  index: -1
+hero_butcher/head
+  rotate: false
+  xy: 548, 72
+  size: 72, 53
+  orig: 74, 55
+  offset: 1, 1
+  index: -1
+hero_butcher/legL
+  rotate: false
+  xy: 506, 2
+  size: 21, 30
+  orig: 21, 30
+  offset: 0, 0
+  index: -1
+hero_butcher/legR
+  rotate: false
+  xy: 510, 34
+  size: 21, 30
+  orig: 21, 30
+  offset: 0, 0
+  index: -1
+hero_butcher/shadow
+  rotate: false
+  xy: 293, 2
+  size: 69, 21
+  orig: 71, 23
+  offset: 1, 1
+  index: -1

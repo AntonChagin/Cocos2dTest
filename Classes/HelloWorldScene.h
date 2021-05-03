@@ -26,17 +26,22 @@
 #define __HELLOWORLD_SCENE_H__
 
 #include "cocos2d.h"
+#include "CT_Player.h"
 
 class HelloWorld : public cocos2d::Scene
 {
 public:
     static cocos2d::Scene* createScene();
 
-    virtual bool init();
-    
+    bool init() override;
+    void setupUI();
+    void update(float deltaTime) override;
     // a selector callback
     void menuCloseCallback(cocos2d::Ref* pSender);
-    
+    void menuStopCallback(cocos2d::Ref* pSender);
+    void menuAttackCallback(cocos2d::Ref* pSender);
+    bool onTouchesBegan(cocos2d::Touch* touch, cocos2d::Event* event);
+    std::shared_ptr<CT_Player> myPlayer;
     // implement the "static create()" method manually
     CREATE_FUNC(HelloWorld);
 };
