@@ -10,6 +10,15 @@
     <Filter Include="src">
       <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Scenes">
+      <UniqueIdentifier>{cbba7334-a004-463b-9e8e-d90f5ae43b4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\objects">
+      <UniqueIdentifier>{16db0336-69fd-45d8-a86f-7d927cc82ac0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\objects\FSM">
+      <UniqueIdentifier>{cf6a0f41-115e-4826-b683-28d1aa6dcb3e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -21,6 +30,15 @@
     <ClCompile Include="..\Classes\HelloWorldScene.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\CT_Player.cpp">
+      <Filter>src\objects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CT_FSM.cpp">
+      <Filter>src\objects\FSM</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CT_PlayerState.cpp">
+      <Filter>src\objects\FSM</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -31,6 +49,18 @@
     </ClInclude>
     <ClInclude Include="..\Classes\HelloWorldScene.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CT_Player.h">
+      <Filter>src\objects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CT_FSM.h">
+      <Filter>src\objects\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CT_State.h">
+      <Filter>src\objects\FSM</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CT_PlayerState.h">
+      <Filter>src\objects\FSM</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
