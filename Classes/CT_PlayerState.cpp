@@ -1,7 +1,10 @@
 #include "CT_PlayerState.h"
-#include "CT_FSM.h"
 #include <string>
 USING_NS_CC;
+
+Idle::Idle()
+{	
+}
 
 // not thread safe!
 Idle* Idle::Instance()
@@ -18,6 +21,9 @@ void Idle::Enter(std::shared_ptr<CT_Player> pObject)
     pObject->skeleton->update(0.0f);
 }
 
+Walk::Walk()
+{
+}
 // not thread safe!
 Walk* Walk::Instance()
 {
@@ -40,24 +46,21 @@ void Walk::Enter(std::shared_ptr<CT_Player> pObject)
         pObject->skeleton->getSkeleton()->flipX = 0;
     else
         pObject->skeleton->getSkeleton()->flipX = 1;
+
     pObject->skeleton->update(0.0f);
 
-}
+    float speed = pObject->speed;
+    float moveTime = currentPos.distance(currentDestination) / speed;
 
- void  Walk::Execute(std::shared_ptr<CT_Player> pObject, float deltaTime)
-{
-    Vec2  currentDestination = pObject->destination;
-    float moveTime = deltaTime;
-    float speed = pObject->speed * deltaTime;
-    Vec2 currentPos = pObject->skeleton->getPosition();
-    currentDestination -= currentPos;
-    currentDestination.normalize();
-    currentDestination = Vec2(currentDestination.x * speed, currentDestination.y * speed);
     pObject->skeleton->runAction(
-        MoveBy::create(moveTime, currentDestination));
+        MoveTo::create(moveTime, currentDestination));
 }
 
- // not thread safe!
+Attack::Attack()
+{
+}
+
+// not thread safe!
 Attack* Attack::Instance()
 {
     static Attack instance;
@@ -69,24 +72,23 @@ void Attack::Enter(std::shared_ptr<CT_Player> pObject)
 {
     pObject->attackPressed = false;
     pObject->canAttack = false;
+   
+    // For not global activities we can use different tracks rather than default 0
+    pObject->skeleton->setAnimation(1, "attack", false);
+    pObject->skeleton->update(0.0f);
 
-    pObject->skeleton->runAction(
-        Sequence::create(
-            CallFunc::create([=]() {
-        // For not global activities we can use different tracks rather than default 0
-                pObject->skeleton->setAnimation(1, "attack", false);
-                pObject->skeleton->update(0.0f);
-                pObject->skeleton->setCompleteListener([pObject](spTrackEntry* entry) {
-                    std::string animName = entry->animation->name;
-
-                    if (animName == "attack") {
-                        pObject->canAttack = true;
-                    }
-                });
-            }),
-            NULL));
+    pObject->skeleton->setCompleteListener([pObject](spTrackEntry* entry) {
+        std::string animName = entry->animation->name;
+        if (animName == "attack") {
+            pObject->canAttack = true;
+        }
+    });
+        
 }
 
+ReadyForAttack::ReadyForAttack()
+{
+}
 // not thread safe!
 ReadyForAttack* ReadyForAttack::Instance()
 {

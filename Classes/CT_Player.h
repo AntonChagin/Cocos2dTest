@@ -2,7 +2,6 @@
 #include <cocos/editor-support/spine/SkeletonAnimation.h>
 #include <cocos2d.h>
 #include "CT_FSM.h"
-#include "CT_State.h"
 
 class CT_Player
 {

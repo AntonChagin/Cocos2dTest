@@ -39,6 +39,9 @@
     <ClCompile Include="..\Classes\CT_PlayerState.cpp">
       <Filter>src\objects\FSM</Filter>
     </ClCompile>
+    <ClCompile Include="..\Classes\CT_State.cpp">
+      <Filter>src\objects\FSM</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main.h">
@@ -56,10 +59,10 @@
     <ClInclude Include="..\Classes\CT_FSM.h">
       <Filter>src\objects\FSM</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CT_State.h">
+    <ClInclude Include="..\Classes\CT_PlayerState.h">
       <Filter>src\objects\FSM</Filter>
     </ClInclude>
-    <ClInclude Include="..\Classes\CT_PlayerState.h">
+    <ClInclude Include="..\Classes\CT_State.h">
       <Filter>src\objects\FSM</Filter>
     </ClInclude>
   </ItemGroup>

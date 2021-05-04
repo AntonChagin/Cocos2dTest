@@ -3,20 +3,18 @@
 #include <vector>
 #include <functional>
 
-using funcPtr = typename std::function<bool()>;
 template <class entity_type>
 struct Table_Entry
 {
 	CT_State<entity_type>* currentState;
-	funcPtr condition;
+	typename std::function<bool()> condition;
 	CT_State<entity_type>* newState;
 	bool isGlobal = false;
 };
 
-template <class entity_type>
-class CT_FSM
+template <class entity_type> class CT_FSM
 {
-   
+
 private:
 	std::shared_ptr<entity_type> owner;
 	// current state for side activities like shooting
@@ -26,73 +24,21 @@ private:
 
 public:
 	std::vector<Table_Entry<entity_type>> stateTable;
-	CT_FSM(std::shared_ptr<entity_type> pOwner) :owner(pOwner),
-		currentState(NULL), globalState(NULL)
-	{}
-	~CT_FSM() {
-		stateTable.clear();
-	}
-    inline CT_State<entity_type>* getCurrentState() const { return currentState; }
+	CT_FSM(std::shared_ptr<entity_type> pOwner);
+	~CT_FSM();
+	CT_State<entity_type>* getCurrentState() const;
 
-	void SetCurrentState(CT_State<entity_type>* s) { currentState = s; s->Enter(owner); }
-	void SetGlobalState(CT_State<entity_type>* s)	{ globalState = s;  s->Enter(owner); }
+	void SetCurrentState(CT_State<entity_type>* s);
+	void SetGlobalState(CT_State<entity_type>* s);
+	CT_State<entity_type>* CurrentState()  const;
+	CT_State<entity_type>* GlobalState()   const;
 
-	void  ChangeState(CT_State<entity_type>* pNewState)
-	{
-		if (currentState != NULL)
-			currentState->Exit(owner);	
-		currentState = pNewState;	
-		currentState->Enter(owner);	
-	}
+	void  ChangeState(CT_State<entity_type>* pNewState);
+	void  ChangeGlobalState(CT_State<entity_type>* pNewState);
 
-	void  ChangeGlobalState(CT_State<entity_type>* pNewState)
-	{
-		if (globalState != NULL)
-			globalState->Exit(owner);		
-		globalState = pNewState;	
-		globalState->Enter(owner);	
-	}
+	void  Update(float deltaTime);
 
-	void  Update(float deltaTime)
-	{
-		for each (auto entry in stateTable)
-		{
-			if (entry.isGlobal) {
-				if (entry.currentState == globalState)
-				{
-					if (entry.condition())
-					{
-						ChangeGlobalState(entry.newState);					
-					}
-				}
-			}
-			else {
-				if (entry.currentState == currentState)
-				{
-					if (entry.condition())
-					{
-						ChangeState(entry.newState);
-					}
-				}
-			}
-		
-		}
-
-		if (globalState)   
-			globalState->Execute(owner, deltaTime);
-
-		if (currentState) 
-			currentState->Execute(owner, deltaTime);
-		
-	}
-
-	bool  isInState(const CT_State<entity_type>& st)const
-	{
-		if (typeid(*currentState) == typeid(st)) return true;
-		return false;
-	}
-	CT_State<entity_type>* CurrentState()  const { return currentState; }
-	CT_State<entity_type>* GlobalState()   const { return globalState; }
+	bool  isInState(const CT_State<entity_type>& st)const;
 };
 
 
